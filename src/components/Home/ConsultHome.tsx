@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import ConsulImage from "/src/assets/Consultations-CwMcrmU6.png";
 
 const ConsultHome = () => {
   return (
-    <div dir="ltr">
+    <div dir="ltr" className="mt-[50px]">
       <div className="w-full m-5 flex justify-center items-center">
         <h2 className="text-center font-semibold text-primary-text text-5xl lg:text-7xl">
           الاستشارات
@@ -73,7 +74,7 @@ const ConsultHome = () => {
         {/* Image Section */}
         <div className="relative w-full md:w-2/3 h-48 md:h-auto">
           <img
-            src="/assets/Consultations-CwMcrmU6.png"
+            src={ConsulImage}
             alt="جلسة استشارة"
             className="object-cover w-full h-full rounded-xl"
           />
