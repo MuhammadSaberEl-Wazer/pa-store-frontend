@@ -73,7 +73,7 @@ const ConsultHome = () => {
         {/* Image Section */}
         <div className="relative w-full md:w-2/3 h-48 md:h-auto">
           <img
-            src="/src/assets/Consultations-CwMcrmU6.png"
+            src="/assets/Consultations-CwMcrmU6.png"
             alt="جلسة استشارة"
             className="object-cover w-full h-full rounded-xl"
           />
