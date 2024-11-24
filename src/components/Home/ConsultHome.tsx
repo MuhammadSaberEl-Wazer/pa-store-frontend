@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ConsulImage from "/src/assets/Consultations-CwMcrmU6.png";
+import ConsulImage from "/assets/Consultations-CwMcrmU6.png";
 
 const ConsultHome = () => {
   return (
