@@ -1,7 +1,7 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ProductDetails: React.FC = () => {
   const settings = {
@@ -14,10 +14,16 @@ const ProductDetails: React.FC = () => {
     arrows: true,
   };
 
+  const goToLink = (): void => {
+    const url: string =
+      "https://drive.google.com/file/d/10T-iT0l-6Bbrsmt3_aXwz6F04fbBw9GF/view";
+    window.open(url, "_blank"); // Open the link in a new tab
+  };
+
   const images = [
-    '/img/home/start-work-category.jpeg',
-    '/img/home/books-category.jpg',
-    '/img/home/courses-category.webp',
+    "/img/home/start-work-category.jpeg",
+    "/img/home/books-category.jpg",
+    "/img/home/courses-category.webp",
   ];
   return (
     <div className="section">
@@ -26,19 +32,23 @@ const ProductDetails: React.FC = () => {
         {/* row */}
         <div className="row  space-between">
           <div className=" col-md-6">
-                <Slider {...settings}>
-                  {images.map((src, index) => (
-                    <div className="product-preview" key={index}>
-                      <img src={src} className='object-cover ' alt={`Product ${index + 1}`} />
-                    </div>
-                  ))}
-                </Slider>
-              </div>
+            <Slider {...settings}>
+              {images.map((src, index) => (
+                <div className="product-preview" key={index}>
+                  <img
+                    src={src}
+                    className="object-cover "
+                    alt={`Product ${index + 1}`}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
 
           {/* Product details */}
-          <div className="col-md-6 h-full " dir='rtl'>
+          <div className="col-md-6 h-full " dir="rtl">
             <div className="product-details lg:translate-y-1/4 flex  flex-col  !justify-center">
-              <h2 className="product-name">اسم المنتج هنا</h2>
+              <h2 className="product-name"> كيف تبيع الهواء</h2>
               <div>
                 <div className="product-rating">
                   <i className="fa fa-star"></i>
@@ -47,14 +57,35 @@ const ProductDetails: React.FC = () => {
                   <i className="fa fa-star"></i>
                   <i className="fa fa-star-o"></i>
                 </div>
-                <a className="review-link" href="#">10 تقييم(ات) | أضف تقييمك</a>
+                <a className="review-link" href="#">
+                  10 تقييم(ات) | أضف تقييمك
+                </a>
               </div>
               <div>
-                <h3 className="product-price">980.00$ <del className="product-old-price">990.00$</del></h3>
+                <h3 className="product-price">
+                  2.00$ <del className="product-old-price">20.00$</del>
+                </h3>
                 <span className="product-available">متوفر في المخزون</span>
               </div>
-              <p>
-                لوريم إيبسوم دولار سيت أميت، كونسكتيتور أديبيسيسينغ إليت، سيد دو إييوسمود تيمبور إنسيديدونت يوت لابور آت دولور ماغنا أليكا.
+              <p className="justify-centerw-full text-justify text-2xl leading-tight">
+                ملخص الكتاب هل فكرت يوماً ما أنك تستطيعُ بيعَ شيءٍ غير ملموس مثل
+                الهواء؟ "كيف تبيع الهواء" رحلةٌ غير اعتيادية في عالم البيع،
+                يخبرك فيها أنك قادر على بيع أي شيء في الدنيا، حتى لو أردت بيع
+                الهواء، ويتحدث الكاتب معك وكأنكما تجلسان في مقهى وتستمتعان بقهوة
+                الصباح. التجربة الحياتية: كُتب هذا الكتاب في ظلِّ ظروفِ الحربِ
+                على غزّة، مما يجعله يعكسُ تجربةً حياتيّةً حقيقيّةً عن البقاءِ
+                والصمودِ، فهو ليس مجرّد كتابٍ عن المبيعاتِ، وسيفتح أمامك أبواباً
+                من الفرص ستُحدث تحولاً ملموساً في حياتك. اللغة واللهجة: تمت
+                كتابة الكتاب باللهجةِ البيضاء لتسهيل إيصال الأفكار للقرّاء من
+                مختلفِ الفئاتِ، بهدفِ جعلهِ سهلَ الفهمِ ومناسبًا للجميع. الرسالة
+                الأخيرة: البيع ليس مجرد مهارة، بل هو ركيزةٌ أساسيّة في الحياة،
+                ويأخذك الكتاب في رحلة متأنية في مرحلة اللاوعي لاكتشاف أسرار
+                البيع تبدأ من مرحلة ما قبل البيع ولا تنتهي أبدًا، ويطرحُ لكَ
+                أفكارًا لبيعِ أشياءَ لم تتخيّلْ يومًا أنَّكَ تستطيعُ بيعَها،
+                ويخبرك بأن على كلِّ إنسانٍ تعلُّمُها، فكلّما كنتَ أفضلَ في
+                البيعِ، كلّما كانتْ حياتُك أفضلَ. أتمنى أن ألتقي بك مرة أخرى في
+                كتابٍ جديد، حيث نواصلُ استكشافَ عالمِ الفرَص سويًا، لقد استمتعت
+                في الحوار معك، وآمل أن تجد هذه الأفكار ملهمةً لك.
               </p>
 
               <div className="add-to-cart w-full mt-[20px]">
@@ -63,11 +94,32 @@ const ProductDetails: React.FC = () => {
                 </button>
               </div>
 
-              <ul className="product-links">
-                <li className='text-primary-text font-bold !text-[1.3rem]'>الفئة:</li>
-                <li><a href="#">سماعات رأس</a></li>
-                <li><a href="#">إكسسوارات</a></li>
-              </ul>
+              <div className="add-to-cart w-full my-3">
+                <button className="add-to-cart-btn w-full">
+                  <i className="fa fa-shopping-cart"></i> شراء الآن
+                </button>
+              </div>
+
+              <div className="add-to-cart w-full">
+                <button
+                  className="add-to-cart-btn w-full"
+                  onClick={() => goToLink()}
+                >
+                  <i className="fa fa-shopping-cart"></i> تصفح أول صفحتين
+                </button>
+              </div>
+
+              {/* <ul className="product-links">
+                <li className="text-primary-text font-bold !text-[1.3rem]">
+                  الفئة:
+                </li>
+                <li>
+                  <a href="#">سماعات رأس</a>
+                </li>
+                <li>
+                  <a href="#">إكسسوارات</a>
+                </li>
+              </ul> */}
             </div>
           </div>
 
@@ -77,9 +129,17 @@ const ProductDetails: React.FC = () => {
           <div className="col-md-12">
             <div id="product-tab">
               {/* product tab nav */}
-              <ul className="tab-nav" dir='rtl'>
-                <li className="active"><a data-toggle="tab" href="#tab1">التفاصيل</a></li>
-                <li><a data-toggle="tab" href="#tab3">المراجعات (3)</a></li>
+              <ul className="tab-nav" dir="rtl">
+                <li className="active">
+                  <a data-toggle="tab" href="#tab1">
+                    التفاصيل
+                  </a>
+                </li>
+                <li>
+                  <a data-toggle="tab" href="#tab3">
+                    المراجعات (3)
+                  </a>
+                </li>
               </ul>
               {/* /product tab nav */}
 
@@ -89,15 +149,11 @@ const ProductDetails: React.FC = () => {
                 <div id="tab1" className="tab-pane fade in active">
                   <div className="row">
                     <div className="col-md-12">
-                      <p>
-                        التفاصيل وكلام كتير عن المنتج وما الي ذلك
-                      </p>
+                      <p>التفاصيل وكلام كتير عن المنتج وما الي ذلك</p>
                     </div>
                   </div>
                 </div>
                 {/* /tab1 */}
-
-               
 
                 {/* tab3 */}
                 <div id="tab3" className="tab-pane fade in">
@@ -138,10 +194,10 @@ const ProductDetails: React.FC = () => {
                     {/* /Rating */}
 
                     {/* Reviews */}
-                    <div className="col-md-6" dir='rtl'>
+                    <div className="col-md-6" dir="rtl">
                       <div id="reviews">
                         <ul className="reviews">
-                          {['John', 'Jane', 'Doe'].map((name, index) => (
+                          {["John", "Jane", "Doe"].map((name, index) => (
                             <li key={index}>
                               <div className="review-heading">
                                 <h5 className="name">{name}</h5>
@@ -156,7 +212,8 @@ const ProductDetails: React.FC = () => {
                               </div>
                               <div className="review-body">
                                 <p>
-                                  منتج زي العسل , شكرا للشركة القائمة علي هذا المنتج , الوصيل كويس وشوية تطبيل
+                                  منتج زي العسل , شكرا للشركة القائمة علي هذا
+                                  المنتج , الوصيل كويس وشوية تطبيل
                                 </p>
                               </div>
                             </li>
@@ -164,10 +221,20 @@ const ProductDetails: React.FC = () => {
                         </ul>
                         <ul className="reviews-pagination">
                           <li className="active">1</li>
-                          <li><a href="#">2</a></li>
-                          <li><a href="#">3</a></li>
-                          <li><a href="#">4</a></li>
-                          <li><a href="#"><i className="fa fa-angle-right"></i></a></li>
+                          <li>
+                            <a href="#">2</a>
+                          </li>
+                          <li>
+                            <a href="#">3</a>
+                          </li>
+                          <li>
+                            <a href="#">4</a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <i className="fa fa-angle-right"></i>
+                            </a>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -177,15 +244,31 @@ const ProductDetails: React.FC = () => {
                     <div className="col-md-3">
                       <div id="review-form">
                         <form className="review-form">
-                          <input className="input" type="text" placeholder="Your Name" />
-                          <input className="input" type="email" placeholder="Your Email" />
-                          <textarea className="input" placeholder="Your Review"></textarea>
+                          <input
+                            className="input"
+                            type="text"
+                            placeholder="Your Name"
+                          />
+                          <input
+                            className="input"
+                            type="email"
+                            placeholder="Your Email"
+                          />
+                          <textarea
+                            className="input"
+                            placeholder="Your Review"
+                          ></textarea>
                           <div className="input-rating">
                             <span>Your Rating: </span>
                             <div className="stars">
                               {[5, 4, 3, 2, 1].map((star) => (
                                 <React.Fragment key={star}>
-                                  <input id={`star${star}`} name="rating" value={star} type="radio" />
+                                  <input
+                                    id={`star${star}`}
+                                    name="rating"
+                                    value={star}
+                                    type="radio"
+                                  />
                                   <label htmlFor={`star${star}`}></label>
                                 </React.Fragment>
                               ))}
