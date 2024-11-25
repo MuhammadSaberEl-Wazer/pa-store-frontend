@@ -1,8 +1,8 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './style/slidersMain.css'
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./style/slidersMain.css";
 
 interface Product {
   imgSrc: string;
@@ -14,71 +14,140 @@ interface Product {
 interface ProductsInterface {
   title: string;
   products: Product[];
-
 }
 
-
-
 const products: ProductsInterface[] = [
-
   {
-    title: 'صفقات جيدة',
+    title: "صفقات جيدة",
     products: [
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 1', price: 980.00, oldPrice: 990.00 },
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 2', price: 980.00, oldPrice: 990.00 },
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 3', price: 980.00, oldPrice: 990.00 },
-    ]
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 1",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 2",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 3",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+    ],
   },
   {
-    title: 'الأفضل مبيعا',
+    title: "الأفضل مبيعا",
     products: [
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 1', price: 980.00, oldPrice: 990.00 },
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 2', price: 980.00, oldPrice: 990.00 },
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 3', price: 980.00, oldPrice: 990.00 },
-    ]
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 1",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 2",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 3",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+    ],
   },
   {
-    title: 'تخفيضات',
+    title: "تخفيضات",
     products: [
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 1', price: 980.00, oldPrice: 990.00 },
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 2', price: 980.00, oldPrice: 990.00 },
-      { imgSrc: '/img/home/start-work-category.jpeg', category: 'Category', name: 'Product 3', price: 980.00, oldPrice: 990.00 },
-    ]
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 1",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 2",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+      {
+        imgSrc: "/img/home/start-work-category.jpeg",
+        category: "Category",
+        name: "Product 3",
+        price: 980.0,
+        oldPrice: 990.0,
+      },
+    ],
   },
-
-
 ];
 
-const ProductWidget: React.FC<Product> = ({ imgSrc, category, name, price, oldPrice }) => (
-  <div className=''>
+const ProductWidget: React.FC<Product> = ({
+  imgSrc,
+  category,
+  name,
+  price,
+  oldPrice,
+}) => (
+  <div className="">
     <div className="product-widget">
       <div className="product-img">
-        <img src={imgSrc} className='rounded-full' alt={name} />
+        <img src={imgSrc} className="rounded-full" alt={name} />
       </div>
       <div className="product-body">
         <p className="product-category">{category}</p>
-        <h3 className="product-name"><a href="#">{name}</a></h3>
-        <h4 className="product-price">${price.toFixed(2)} <del className="product-old-price">${oldPrice.toFixed(2)}</del></h4>
+        <h3 className="product-name">
+          <a href="#">{name}</a>
+        </h3>
+        <h4 className="product-price">
+          ${price.toFixed(2)}{" "}
+          <del className="product-old-price">${oldPrice.toFixed(2)}</del>
+        </h4>
       </div>
     </div>
     <div className="product-widget">
       <div className="product-img">
-        <img src={imgSrc} className='rounded-full' alt={name} />
+        <img src={imgSrc} className="rounded-full" alt={name} />
       </div>
       <div className="product-body">
         <p className="product-category">{category}</p>
-        <h3 className="product-name"><a href="#">{name}</a></h3>
-        <h4 className="product-price">${price.toFixed(2)} <del className="product-old-price">${oldPrice.toFixed(2)}</del></h4>
+        <h3 className="product-name">
+          <a href="#">{name}</a>
+        </h3>
+        <h4 className="product-price">
+          ${price.toFixed(2)}{" "}
+          <del className="product-old-price">${oldPrice.toFixed(2)}</del>
+        </h4>
       </div>
     </div>
     <div className="product-widget">
       <div className="product-img">
-        <img src={imgSrc}  className='rounded-full'alt={name} />
+        <img src={imgSrc} className="rounded-full" alt={name} />
       </div>
       <div className="product-body">
         <p className="product-category">{category}</p>
-        <h3 className="product-name"><a href="#">{name}</a></h3>
-        <h4 className="product-price">${price.toFixed(2)} <del className="product-old-price">${oldPrice.toFixed(2)}</del></h4>
+        <h3 className="product-name">
+          <a href="#">{name}</a>
+        </h3>
+        <h4 className="product-price">
+          ${price.toFixed(2)}{" "}
+          <del className="product-old-price">${oldPrice.toFixed(2)}</del>
+        </h4>
       </div>
     </div>
   </div>
@@ -101,9 +170,14 @@ const ProductSection: React.FC = () => {
           {products.map((productGroup, index) => (
             <div className="col-md-4 col-xs-6 mt-[50px]" key={index}>
               <div className="section-title flex justify-center">
-                <h4 className="title flex-end !text-right text-primary-text">{productGroup.title}</h4>
+                <h4 className="title flex-end !text-right text-primary-text">
+                  {productGroup.title}
+                </h4>
                 <div className="section-nav">
-                  <div id={`slick-nav-${index + 3}`} className="products-slick-nav"></div>
+                  <div
+                    id={`slick-nav-${index + 3}`}
+                    className="products-slick-nav"
+                  ></div>
                 </div>
               </div>
               <Slider {...settings}>

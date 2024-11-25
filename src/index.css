@@ -1208,6 +1208,24 @@ textarea.input {
   font-size: 14px;
 }
 
+.product-slider-card {
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .product-slider-card {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-slider-card {
+    max-width: 150px;
+  }
+}
+
 /*=========================================================
 	07 -> PRODUCTS PAGE
 ===========================================================*/

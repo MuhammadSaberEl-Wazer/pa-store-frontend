@@ -15,18 +15,17 @@ const Home = () => {
           title="الكتب"
           types={["خيال", "روايات", "رومانسي", "علوم", "رياضيات", "تاريخ"]}
           selectedType="تاريخ"
-          buttonTitle="عرض المزيد من الكتب"
+
+          // buttonTitle="عرض المزيد من الكتب"
         />
-        <ProductSlider
+        {/* <ProductSlider
           title="الدورات"
           types={["برمجة", "لغات", "تصميم", "بيزنيس", "موسيقي"]}
           selectedType="موسيقي"
           buttonTitle="عرض المزيد من الدورات"
-        />
+        /> */}
       </div>
-
       <MulitSectionProductsSlider />
-
       <StartWorkHomeBanner />
       <ConsultHome />
       <OurGoals />
