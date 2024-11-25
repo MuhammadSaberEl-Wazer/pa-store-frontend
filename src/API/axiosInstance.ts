@@ -26,7 +26,7 @@ api.interceptors.response.use(
   },
   (error) => {
     // Handle errors globally
-    console.error("API Error:", error.response || error.message);
+    console.error("API Error:", error || error);
     return Promise.reject(error);
   }
 );
