@@ -8,10 +8,12 @@ const api = axios.create({
   },
 });
 
+// Debugging baseURL
+
+
 // Request interceptor
 api.interceptors.request.use(
   (config) => {
-    // Add authorization token or other custom headers if needed
     return config;
   },
   (error) => {

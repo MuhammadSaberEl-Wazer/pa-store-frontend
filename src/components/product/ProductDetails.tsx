@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getOneProduct } from "../../API/Products/getOneProduct";
 import { REACT_APP_IMG_BASE_URL } from "../../../Statics";
 
@@ -19,7 +19,7 @@ interface Product {
 
 const ProductDetails: React.FC = () => {
   const { id: productId } = useParams();
-
+  const navigate = useNavigate();
   const goToLink = (): void => {
     const url: string =
       "https://drive.google.com/file/d/10T-iT0l-6Bbrsmt3_aXwz6F04fbBw9GF/view";
@@ -41,7 +41,6 @@ const ProductDetails: React.FC = () => {
       const fetchProduct = async () => {
         try {
           const data = await getOneProduct(productId); // Fetch products from the API
-          console.log("data.data", productId, data);
           setProduct(data);
         } catch (error) {
           console.error("Failed to fetch products:", error);
@@ -53,7 +52,9 @@ const ProductDetails: React.FC = () => {
     }
   }, [productId]);
 
-  console.log("product", product);
+  const navigateToCheckout = () => {
+    navigate(`/checkout?productId=${productId}`);
+  };
 
   if (loading) {
     return <p className="text-center text-primary-text">Loading products...</p>;
@@ -121,7 +122,10 @@ const ProductDetails: React.FC = () => {
                 </div>
 
                 <div className="add-to-cart w-full my-3">
-                  <button className="add-to-cart-btn w-full">
+                  <button
+                    onClick={navigateToCheckout}
+                    className="add-to-cart-btn w-full"
+                  >
                     <i className="fa fa-shopping-cart"></i> شراء الآن
                   </button>
                 </div>

@@ -117,7 +117,6 @@ const ProductSlider: React.FC<ProductSliderProps> = ({
     return <p className="text-center text-primary-text">Loading products...</p>;
   }
 
-  console.log("products", products);
 
   return (
     <div className="section overflow-hidden">

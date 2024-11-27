@@ -1,9 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { LoginData, loginUser } from "../API/Auth/login";
+import { useEffect, useState } from "react";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const checkLoginStatus = () => {
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+    if (isLoggedIn) {
+      navigate("/");
+    }
+  };
+  useEffect(() => {
+    checkLoginStatus();
+  });
+  // State for login message
+  const [loginMessage, setLoginMessage] = useState<string | null>(null);
+  const [isError, setIsError] = useState<boolean>(false);
+
+  const [searchParams] = useSearchParams();
+  const refer = searchParams.get("refer");
+  const productId = searchParams.get("productId");
+
   // Validation schema using Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -23,12 +42,20 @@ const Login = () => {
   // Form submission handler
   const handleSubmit = async (values: LoginData) => {
     try {
-      const response = await loginUser(values);
-      console.log("Login successful:", response);
-      // Handle successful login (e.g., redirect to dashboard)
+      await loginUser(values);
+      setLoginMessage("تم تسجيل الدخول بنجاح!");
+      setIsError(false);
+      setTimeout(() => {
+        if (refer && productId) {
+          navigate(`/${refer}?productId=${productId}`);
+        } else {
+          navigate("/");
+        }
+      }, 1500);
     } catch (error) {
       console.error("Login failed:", error);
-      // Optionally, display an error message to the user
+      setLoginMessage("حدث خطأ أثناء محاولة تسجيل الدخول.");
+      setIsError(true);
     }
   };
 
@@ -61,7 +88,7 @@ const Login = () => {
               >
                 {({ isSubmitting }) => (
                   <Form className="mt-8 grid grid-cols-6 gap-6">
-                    <div className="col-span-6 ">
+                    <div className="col-span-6">
                       <label
                         htmlFor="email"
                         className="block text-lg font-medium text-primary-text"
@@ -150,6 +177,19 @@ const Login = () => {
                   </Form>
                 )}
               </Formik>
+
+              {/* Display login status message */}
+              {loginMessage && (
+                <div
+                  className={`mt-4 p-4 text-center rounded-md ${
+                    isError
+                      ? "bg-red-200 text-red-600"
+                      : "bg-green-200 text-green-600"
+                  }`}
+                >
+                  {loginMessage}
+                </div>
+              )}
             </div>
           </main>
         </div>

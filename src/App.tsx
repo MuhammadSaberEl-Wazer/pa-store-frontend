@@ -10,12 +10,13 @@ import Product from "./pages/Product";
 import StartWrok from "./pages/StartWrok";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Checkout from "./pages/Checkout";
+// import Checkout from "./pages/Checkout";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import BrowseJobs from "./pages/browsejobs/BrowseJobs";
 import JobDetails from "./pages/jobDetails/JobDetails";
 import Booking from "./pages/Booking";
+import CheckoutNew from "./pages/CheckoutNew";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,7 +54,7 @@ function App() {
         },
         {
           path: "/checkout",
-          element: <Checkout />,
+          element: <CheckoutNew />,
         },
         {
           path: "/jobs",

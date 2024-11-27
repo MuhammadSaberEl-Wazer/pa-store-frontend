@@ -22,7 +22,6 @@ export const registerUser = async (data: RegisterData): Promise<void> => {
     if (error instanceof Error) {
       throw new Error(error.message);
     }
-    console.log("error", error);
 
     throw new Error("An unknown error occurred during registration.");
   }

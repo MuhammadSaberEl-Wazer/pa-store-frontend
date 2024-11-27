@@ -1,13 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logoutUser } from "../API/Auth/logout";
+import { UserInfo } from "../layout/HomeLayout";
 // import './Header.css'; // Optional: Include your CSS file for styling
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  loggedInUser: boolean;
+  userInfo?: UserInfo;
+}
+const Header: React.FC<HeaderProps> = ({ loggedInUser, userInfo }) => {
+  const navigate = useNavigate();
+  const logOutLogic = () => {
+    try {
+      logoutUser();
+      navigate("/");
+    } catch (error) {
+      console.error("Login failed:", error);
+      throw new Error("An unknown error occurred during logout.");
+    }
+  };
   return (
     <header className="overflow-hidden">
       {/* رأس الصفحة العلوي */}
       <div id="top-header">
-        <div className="container">
+        <div className="container  w-[100%] flex justify-between items-center">
           <ul className="header-links pull-left">
             <li>
               <a href="#">
@@ -20,6 +36,11 @@ const Header: React.FC = () => {
               </a>
             </li>
           </ul>
+          {userInfo?.name ? (
+            <div className="right-side text-[white]">
+              {userInfo?.name}:مرحبًا
+            </div>
+          ) : null}
         </div>
       </div>
       {/* /رأس الصفحة العلوي */}
@@ -45,12 +66,24 @@ const Header: React.FC = () => {
               <div className="col-md-3 w-fit clearfix">
                 <div className="header-ctn flex !justify-between !items-center">
                   {/* الحساب */}
-                  <div>
-                    <Link to="/login" className="hover:text-primary-text">
-                      <i className="fa fa-user"></i>
-                      <span className="">تسجيل الدخول</span>
-                    </Link>
-                  </div>
+                  {loggedInUser ? (
+                    <div>
+                      <button
+                        onClick={() => logOutLogic()}
+                        className="hover:text-primary-text flex flex-col items-center text-[white]"
+                      >
+                        <i className="fa fa-user"></i>
+                        <span className="">تسجيل الخروج</span>
+                      </button>
+                    </div>
+                  ) : (
+                    <div>
+                      <Link to="/login" className="hover:text-primary-text">
+                        <i className="fa fa-user"></i>
+                        <span className="">تسجيل الدخول</span>
+                      </Link>
+                    </div>
+                  )}
 
                   {/* السلة */}
                   <div className="dropdown ">
@@ -110,8 +143,6 @@ const Header: React.FC = () => {
                 </div>
               </div>
             </div>
-
-           
 
             {/* الحساب */}
 
